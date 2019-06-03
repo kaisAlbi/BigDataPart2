@@ -114,7 +114,7 @@ for day in range(0,8):
     time_start=time.time()
     
     #Select sensor measurements for the corresponding relative day
-    data_current_day=temp[(temp.seconds>=day*86400) & (temp.seconds<(day+1)*86400)]
+    data_current_day=complete_df[(complete_df.seconds>=day*86400) & (complete_df.seconds<(day+1)*86400)]
     data_current_day=data_current_day.dropna()
     #For all measurements in that hour
     for i in range(len(data_current_day)):

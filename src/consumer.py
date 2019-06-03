@@ -9,7 +9,7 @@ from pyspark.streaming.kafka import KafkaUtils
 
 
 
-def getKafkaDStream(spark,topic='temperature',batch_interval=10):
+def getKafkaDStream(spark,topic='temperature',batch_interval=20):
 
 	#Get Spark context
 	sc=spark.sparkContext
@@ -166,7 +166,7 @@ state_1 = ["persistence", last_measurement,1]	#Last measurement: prediction & se
 state_24 = ["persistence", last_measurement,24]
 #state_pers_1=('persistence',beta2,V2,mu2,0,0)
 
-[sc,ssc,dstream]=getKafkaDStream(spark=spark,topic='temperature',batch_interval=1)
+[sc,ssc,dstream]=getKafkaDStream(spark=spark,topic='temperature',batch_interval=interval)
 
 dstream.pprint()
 #dstream=dstream.flatMap(lambda x: [('mod1',('mod1',1.0*np.array(x))),
