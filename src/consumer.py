@@ -9,7 +9,7 @@ from pyspark.streaming.kafka import KafkaUtils
 
 
 
-def getKafkaDStream(spark,topic='temperature',batch_interval=20):
+def getKafkaDStream(spark,topic='temperature',batch_interval=45):
 
 	#Get Spark context
 	sc=spark.sparkContext
@@ -161,7 +161,7 @@ state1=('mod1',beta1,V1,mu1,0,0)
 #PERSISTENCE model
 last_measurement=0
 #Batch interval (to be synchronized with KafkaSend)
-interval=30
+interval=45
 state_1 = ["persistence", last_measurement,1]	#Last measurement: prediction & sensor to predict
 state_24 = ["persistence", last_measurement,24]
 #state_pers_1=('persistence',beta2,V2,mu2,0,0)
